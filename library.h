@@ -15,7 +15,7 @@ private:
     std::string m_title;
 
     Book(const std::string &title);
-    friend Library;
+    friend class Library;
 };
 
 class Library
