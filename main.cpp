@@ -1,9 +1,7 @@
 #include <iostream>
-#include <map>
 #include <string>
 #include "library.h"
-
-using namespace std;
+#include "libraryUtils.h"
 
 int main()
 {
@@ -12,14 +10,23 @@ int main()
     library.AddTitle("LOTR TT");
     library.AddTitle("LOTR ROTK");
 
-    library.PrintTitles();
-    library.RentBook(0, "Witold Piecewicz");
+    while (true)
+    {
+        library_utils::RenderWelcome();
 
-    library.PrintTitles();
+        int choice;
+        std::cin >> choice;
 
-    library.ReturnBook(0);
+        if (std::cin.fail())
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::printf("Invalid input. Please enter a number.\n");
+            continue;
+        }
 
-    library.PrintTitles();
+        library_utils::HandleChoice(choice, library);
+    }
 
     return 0;
 }

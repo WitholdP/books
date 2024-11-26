@@ -20,6 +20,7 @@ Library::Library()
 void Library::PrintTitles()
 {
     int i = 0;
+    std::printf("---------- BOOK TITLES ----------\n");
     for (auto book : m_books)
     {
         std::printf("%d. ", i);
@@ -35,6 +36,15 @@ void Library::AddTitle(const std::string &title)
     {
         std::printf("Book cannot have an empty title.\n");
         return;
+    }
+
+    for (auto book : m_books)
+    {
+        if (book.m_title == title)
+        {
+            std::printf("Library already has this title.\n");
+            return;
+        }
     }
 
     Book book = Book(title);
