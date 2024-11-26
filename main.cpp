@@ -8,12 +8,17 @@ using namespace std;
 int main()
 {
     Library library;
-    library.AddTitle("");
+    library.AddTitle("LOTR TFOTR");
     library.AddTitle("LOTR TT");
     library.AddTitle("LOTR ROTK");
 
     library.PrintTitles();
-    library.RemoveBook(10);
+    library.RentBook(0, "Witold Piecewicz");
+
+    library.PrintTitles();
+
+    library.ReturnBook(0);
+
     library.PrintTitles();
 
     return 0;
